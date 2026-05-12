@@ -45,7 +45,7 @@ def table_create():
         )
     """
     cur.execute(sql_bath_status)
-    print("お風呂完了")
+    print("お風呂状態完了")
 
     sql_bath_log="""
         create table if not exists bath_log(
@@ -54,6 +54,8 @@ def table_create():
         username VARCHAR(50) NOT NULL,
         )
     """
+    cur.execute(sql_bath_log)
+    print("お風呂ログ完了")
 
     cur.close()
     con.close()
