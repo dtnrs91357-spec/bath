@@ -34,7 +34,8 @@ def table_create():
         create table if not exists account(
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL,
-        familypass VARCHAR(255) NOT NULL
+        password VARCHAR(255) NOT NULL,
+        family_id VARCHAR(255) 
         )
     """
     cur.execute(sql_account)
@@ -42,7 +43,7 @@ def table_create():
 
     sql_bath_status="""
         create table if not exists bath_status(
-        familypass VARCHAR(255) PRIMARY KEY,
+        family_id VARCHAR(255) PRIMARY KEY,
         status VARCHAR(10) NOT NULL,
         username VARCHAR(50) NOT NULL
         )
@@ -52,7 +53,7 @@ def table_create():
 
     sql_bath_log="""
         create table if not exists bath_log(
-        familypass VARCHAR(255) PRIMARY KEY,
+        family_id VARCHAR(255) PRIMARY KEY,
         status VARCHAR(10) NOT NULL,
         username VARCHAR(50) NOT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
